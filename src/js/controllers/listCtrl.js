@@ -1,9 +1,8 @@
 'use strict';
 
-app.controller('listCtrl', function($rootScope, $state, $timeout, posts) {
+app.controller('listCtrl', function($rootScope, $state, posts) {
 
 	$rootScope.isLoading = true;
-	$rootScope.delaying = false;
 
 	var $listCtrl = this;
 
@@ -13,11 +12,4 @@ app.controller('listCtrl', function($rootScope, $state, $timeout, posts) {
 		$listCtrl.posts = res;
 		$rootScope.isLoading = false;
 	});
-
-	$listCtrl.goToArticle = function(slug){
-		$rootScope.delaying = true;
-		$timeout(function () {
-			$state.go('detail', {slug: slug});
-    	}, 750);
-	};
 });
