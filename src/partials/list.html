@@ -1,8 +1,8 @@
-<div class="twelve columns">
+<div class="eleven columns offset-by-one">
 	<p data-ng-bind="$listCtrl.pageTitle"></p>
 </div>
 
-<div class="twelve columns">
+<div class="eleven columns offset-by-one">
 	<article data-ng-repeat="post in $listCtrl.posts">
 		<h2 data-ng-bind="post.title.rendered"></h2>
 		<div ng-bind-html="post.content.rendered | trusted"></div>
