@@ -1,26 +1,37 @@
 <div class="row">
 	<div class="eleven columns offset-by-one">
-		<h1 data-ng-bind="$detailCtrl.post.title.rendered"></h1>
+		<h1 class="fading" data-ng-hide="isLoading" data-ng-bind="$detailCtrl.post.title.rendered"></h1>
 	</div>
 </div>
 
 <div class="row">
 	<div class="one columns">
-		{{$detailCtrl.post.date|date}}
-		<a class="editPostLink" data-ng-hide="!$detailCtrl.post.editPostLink" href="{{$detailCtrl.post.editPostLink}}">Edit</a>
+		<div class="fading" data-ng-hide="isLoading">
+			<span data-ng-bind="$detailCtrl.post.date|date"></span>
+			<a href="{{$detailCtrl.post.editPostLink}}">Edit</a>
+		</div>
 	</div>
 
 	<div class="ten columns">
-		<div data-ng-bind-html="$detailCtrl.post.content.rendered | trusted"></div>
+		<div class="fading" data-ng-hide="isLoading" data-ng-bind-html="$detailCtrl.post.content.rendered | trusted"></div>
 	</div>
 
 	<div class="one columns">
-		{{$detailCtrl.post.author}}
+		<div class="fading" data-ng-hide="isLoading">
+			<span class="fading" data-ng-hide="isLoading" data-ng-bind="$detailCtrl.author.name"></span>
+			<div><img class="fading" data-ng-hide="isLoading" data-ng-src="{{$detailCtrl.author.avatar_urls[24]}}"></div>
+		</div>
 	</div>
 </div>
 
 <div class="row">
 	<div class="eleven columns offset-by-one">
-		<a data-ui-sref="list">Back to list</a>
+		<a class="fading" data-ng-hide="isLoading" data-ui-sref="list">Back to list</a>
 	</div>
+</div>
+
+<div class="row">
+    <div class="eleven columns offset-by-one">
+        <p class="fading" data-ng-hide="isLoading">FOOTER</p>
+    </div>
 </div>

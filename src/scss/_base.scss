@@ -1,12 +1,26 @@
 h1.loading a{
-	color: #3f51b5 !important;
+	// color: #3f51b5 !important;
 }
 
-a.editPostLink.ng-hide {
+.fading.ng-hide,
+{
 	opacity: 0;
 }
 
-a.editPostLink{
-	transition: all linear 0.5s;
+.fading,
+{
+	transition: all linear .75s;
 	opacity: 1;
+}
+
+.outFading{
+	opacity: 1;
+	animation: fadeOut;
+	animation-duration: .75s;
+	animation-iteration-count: 1;
+}
+
+@keyframes fadeOut {
+    from {opacity: 1;}
+    to {opacity: 0;}
 }

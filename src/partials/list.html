@@ -1,11 +1,23 @@
-<div class="eleven columns offset-by-one">
-	<p data-ng-bind="$listCtrl.pageTitle"></p>
+<div class="row">
+	<div class="eleven columns offset-by-one">
+		<p class="fading" data-ng-hide="isLoading" data-ng-class="{ outFading: delaying }" data-ng-bind="$listCtrl.pageTitle"></p>
+	</div>
 </div>
 
-<div class="eleven columns offset-by-one">
-	<article data-ng-repeat="post in $listCtrl.posts">
-		<h2 data-ng-bind="post.title.rendered"></h2>
-		<div ng-bind-html="post.content.rendered | trusted"></div>
-		<a data-ui-sref="detail({ slug: post.slug })">Click here to read more</a>
-	</article>
+<div class="row">
+	<div class="eleven columns offset-by-one">
+		<div class="fading" data-ng-hide="isLoading" data-ng-class="{ outFading: delaying }">
+			<article data-ng-repeat="post in $listCtrl.posts">
+				<h2 data-ng-bind="post.title.rendered"></h2>
+				<div ng-bind-html="post.content.rendered | trusted"></div>
+				<a href="#" data-ng-click="$listCtrl.goToArticle(post.slug)">Click here to read more</a>
+			</article>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+    <div class="eleven columns offset-by-one">
+        <p class="fading" data-ng-hide="isLoading" data-ng-class="{ outFading: delaying }">FOOTER</p>
+    </div>
 </div>

@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row">
 		<div class="columns eleven offset-by-one">
-			<h1 data-ng-class="{ loading: loadingStatus }">
+			<h1 data-ng-class="{ loading: isLoading }">
 				<a data-ui-sref="list">
 					<?php echo bloginfo('name'); ?>
 				</a>
