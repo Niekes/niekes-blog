@@ -1,4 +1,12 @@
 h1.loading a{
-	color: #65c2ef !important;
+	color: #3f51b5 !important;
 }
 
+a.editPostLink.ng-hide {
+	opacity: 0;
+}
+
+a.editPostLink{
+	transition: all linear 0.5s;
+	opacity: 1;
+}

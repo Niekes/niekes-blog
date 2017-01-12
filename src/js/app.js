@@ -1,6 +1,6 @@
 'use strict';
 
-var app = new angular.module( 'app', ['ui.router', 'ngResource'] );
+var app = new angular.module( 'app', ['ui.router', 'ngResource', 'ngAnimate'] );
 
 app.config(function($stateProvider, $urlRouterProvider){
 

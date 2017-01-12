@@ -32,6 +32,7 @@ gulp.task('scripts', function(){
         jsSrcPath + 'libs/angular.min.js',
         jsSrcPath + 'libs/angular-resource.min.js',
         jsSrcPath + 'libs/angular-ui-router.min.js',
+        jsSrcPath + 'libs/angular-animate.min.js',
   		jsSrcPath + 'libs/angular-locale_de-de.min.js',
   		// ANGULAR: App
   		jsSrcPath + 'app.js',
