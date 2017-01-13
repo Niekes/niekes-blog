@@ -1,17 +1,15 @@
 'use strict';
 
-app.controller('detailCtrl', function($rootScope, $http, $stateParams, $q, users) {
+app.controller('detailCtrl', function($rootScope, $http, $stateParams, $q, posts, users) {
 
 	$rootScope.isLoading = true;
 
 	var $detailCtrl = this;
 
-	$http.get(appInfo.apiUrl + 'posts?filter[name]=' + $stateParams.slug).then(function successCallback(res){
-		$detailCtrl.post = res.data[0];
-		var requests = [
-			users.get({id: $detailCtrl.post.author})
-		];
-		// @todo get editlink later
+	posts.query({slug: $stateParams.slug}, function (res){
+		$detailCtrl.post = res[0];
+		var requests = [users.get({id: $detailCtrl.post.author})];
+
 		$q.all(requests).then(function successCallback(res){
 			$detailCtrl.author = res[1];
 			$rootScope.isLoading = false;
