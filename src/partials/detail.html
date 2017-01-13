@@ -8,7 +8,7 @@
 	<div class="one columns">
 		<div class="fading" data-ng-hide="isLoading">
 			<span data-ng-bind="$detailCtrl.post.date|date"></span>
-			<a href="{{$detailCtrl.post.editPostLink}}">Edit</a>
+			<a data-ng-hide="!$detailCtrl.post.editPostLink" href="{{$detailCtrl.post.editPostLink}}">Edit</a>
 		</div>
 	</div>
 
