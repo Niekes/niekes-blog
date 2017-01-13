@@ -1,34 +1,19 @@
-h1.loading a{
-	// color: #3f51b5 !important;
-}
-
-.fading.ng-hide,
-{
-	opacity: 0;
-}
-
-.fading,
-{
-	transition: all linear .75s;
-	opacity: 1;
-}
-
 .slide {
-    -webkit-transition: -webkit-transform .3s ease-in-out;
-    -moz-transition: -moz-transform .3s ease-in-out;
-    -o-transition: -o-transform .3s ease-in-out;
-    transition: transform .3s ease-in-out;
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -o-transition: all 2s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 .slide.ng-enter {
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
+    opacity: 0;
 }
 
 .slide.ng-enter.ng-enter-active, .slide.ng-leave {
     position: absolute;
+    opacity: 1;
     -webkit-transform: translateX(0);
     transform: translateX(0);
 }
@@ -36,4 +21,5 @@ h1.loading a{
 .slide.ng-leave.ng-leave-active {
     -webkit-transform: translateX(100%);
     transform: translateX(100%);
+    opacity: 0;
 }

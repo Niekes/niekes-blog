@@ -18,7 +18,7 @@
 <body class="blog">
 <div class="container">
     <div class="row">
-		<div class="columns eleven offset-by-one">
+		<div class="col-lg-12">
 			<h1 data-ng-class="{ loading: isLoading }">
 				<a data-ui-sref="list">
 					<?php echo bloginfo('name'); ?>
