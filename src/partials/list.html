@@ -4,16 +4,20 @@
 	</div>
 </div> -->
 
-<div class="row">
-	<div class="col-lg-12">
-		<article data-ng-repeat="post in $listCtrl.posts">
-			<h2 data-ng-bind="post.title.rendered"></h2>
-			<div ng-bind-html="post.content.rendered | trusted"></div>
-			<a class="readMore" data-ui-sref="detail({ slug: post.slug })">Mehr lesen</a>
-		</article>
-	</div>
-</div>
+<div class="fade" data-ng-hide="isLoading">
 
-<div class="row footer">
-	<div class="col-lg-12" data-ng-bind-html="$listCtrl.footer|trusted"></div>
+	<div class="row">
+		<div class="col-lg-12">
+			<article data-ng-repeat="post in $listCtrl.posts">
+				<h2 data-ng-bind="post.title.rendered"></h2>
+				<div ng-bind-html="post.content.rendered | trusted"></div>
+				<a class="readMore" data-ui-sref="detail({ slug: post.slug })">Mehr lesen</a>
+			</article>
+		</div>
+	</div>
+
+	<div class="row footer">
+		<div class="col-lg-12" data-ng-bind-html="$listCtrl.footer|trusted"></div>
+	</div>
+
 </div>
