@@ -3,7 +3,6 @@
 class wp_ng_theme {
 
 	function enqueue_scripts() {
-
 		wp_enqueue_script('ngScripts', get_template_directory_uri() . '/js/scripts.js', array(), '1.0', false);
 		wp_localize_script('ngScripts', 'appInfo',
 			array(
@@ -13,21 +12,7 @@ class wp_ng_theme {
 				'isAdmin'			 => current_user_can('administrator')
 			)
 		);
-
 	}
-
-	// function register_new_field() {
-	// 	register_api_field('post',
-	// 		'my_awesome_field',
-	// 		array(
-	// 			'get_callback' => array( $this, 'awesome_field' )
-	// 		)
-	// 	);
-	// }
-
-	// function awesome_field( $object, $field_name, $request ) {
-	// 	return 'My Awesome String';
-	// }
 
 	function edit_link_route($request) {
 		register_rest_route(
@@ -46,11 +31,24 @@ class wp_ng_theme {
 		$response = new WP_REST_Response($new_data);
 		return $response;
 	}
+
+	// Change post preview button url
+	function change_preview_link() {
+		return get_home_url() . '/#/posts/' . basename(get_permalink());
+	}
+
+	// Change permalink structure
+	function edit_the_permalink($url) {
+		$base = parse_url($url, PHP_URL_HOST);
+		$path = parse_url($url, PHP_URL_PATH);
+		return '/#' . rtrim($path, "/");
+	}
 }
 
 $ngTheme = new wp_ng_theme();
 add_action('wp_enqueue_scripts', array($ngTheme, 'enqueue_scripts'));
 add_action('rest_api_init', array($ngTheme, 'edit_link_route'));
-// add_action('rest_api_init', array( $ngTheme, 'register_new_field'));
+add_filter('preview_post_link', array($ngTheme, 'change_preview_link'));
+add_filter('post_link', array($ngTheme, 'edit_the_permalink'));
 
 ?>

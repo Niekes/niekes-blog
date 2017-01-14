@@ -13,7 +13,7 @@
 	    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-
+    <base href="/">
 </head>
 <body class="blog">
 <div class="container">

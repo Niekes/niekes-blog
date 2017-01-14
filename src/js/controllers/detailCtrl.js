@@ -7,7 +7,6 @@ app.controller('detailCtrl', function($rootScope, $http, $stateParams, $q, posts
 	posts.query({slug: $stateParams.slug}, function (res){
 		$detailCtrl.post = res[0];
 		$detailCtrl.author = users.get({id: $detailCtrl.post.author});
-
 		$http.get(
 				appInfo.apiUrl + 'editlink?post=' +
 				$detailCtrl.post.id,
