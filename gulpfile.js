@@ -44,6 +44,8 @@ gulp.task('scripts', function(){
         jsSrcPath + 'services/userService.js',
         // ANGULAR: Filters
         jsSrcPath + 'filters/htmlFilter.js',
+        // ANGULAR: constants
+        jsSrcPath + 'constants/constants.js',
 	])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest('niekes_blog/js'))

@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('detailCtrl', function($rootScope, $http, $stateParams, $q, posts, users) {
+app.controller('detailCtrl', function(DEFAULT, $rootScope, $http, $stateParams, $q, posts, users) {
 
 	var $detailCtrl = this;
 
@@ -19,4 +19,6 @@ app.controller('detailCtrl', function($rootScope, $http, $stateParams, $q, posts
 				$detailCtrl.post.editPostLink = res.data.editPostLink;
 		});
 	});
+
+	$detailCtrl.footer = DEFAULT.FOOTER;
 });
