@@ -19,10 +19,10 @@
 <div class="container">
     <div class="row">
 		<div class="col-lg-12">
-			<h1 data-ng-class="{ loading: isLoading }">
-				<a data-ui-sref="list">
+			<a id="blogHeader" data-ui-sref="list">
+                <h1>
 					<?php echo bloginfo('name'); ?>
-				</a>
-			</h1>
+                </h1>
+			</a>
         </div>
 	</div>

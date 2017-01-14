@@ -1,0 +1,13 @@
+a#blogHeader{
+	h1{
+	font-size: 7rem;
+	font-weight: $font-weight-800;
+	text-transform: uppercase;
+	color: $gray-dark;
+
+	}
+	&:hover, &:focus, &:active{
+		text-decoration: none;
+		underline: none;
+	}
+}

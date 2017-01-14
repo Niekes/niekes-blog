@@ -9,6 +9,7 @@
 	License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 	Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
 */
-@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,800');
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
-// @todo add Playfair font: https://fonts.google.com/specimen/Playfair+Display
+$font-weight-500: 500;
+$font-weight-800: 800;
