@@ -1,9 +1,11 @@
 @import "variables";
-@import "modules/bootstrap";
+@import "bootstrap/bootstrap";
 @import "mixins";
 @import "base";
-@import "header";
 // ------------------
 //      MODULES
 // ------------------
-// @import "modules/....";
+@import "modules/wordpress";
+@import "modules/header";
+@import "modules/list";
+@import "modules/detail";

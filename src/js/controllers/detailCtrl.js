@@ -4,6 +4,10 @@ app.controller('detailCtrl', function($rootScope, $http, $stateParams, $q, posts
 
 	var $detailCtrl = this;
 
+	// @todo implement search
+	// var sr = posts.query({search: 'studium+informatik'});
+	// console.log(sr);
+
 	posts.query({slug: $stateParams.slug}, function (res){
 		$detailCtrl.post = res[0];
 		$detailCtrl.author = users.get({id: $detailCtrl.post.author});

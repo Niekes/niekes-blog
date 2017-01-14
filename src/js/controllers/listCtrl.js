@@ -4,9 +4,6 @@ app.controller('listCtrl', function($rootScope, $state, posts) {
 
 	var $listCtrl = this;
 
-	$listCtrl.pageTitle = 'Blog Listing Page';
+	$listCtrl.posts = posts.query();
 
-	posts.query(function(res) {
-		$listCtrl.posts = res;
-	});
 });
