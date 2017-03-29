@@ -10,11 +10,12 @@ app.controller('detailCtrl', function(DEFAULT, $rootScope, $http, $stateParams, 
 	// console.log(sr);
 
 	function init(){
-		$rootScope.isLoading = DEFAULT.BOOLEAN.TRUE;
+		$rootScope.isLoading = true;
 		posts.query({slug: $stateParams.slug}, function (res){
 			$detailCtrl.post = res[0];
+			$rootScope.metaTitle = ' - ' + $detailCtrl.post.title.rendered;
 			$detailCtrl.author = users.get({id: $detailCtrl.post.author}, function(){
-				$rootScope.isLoading = DEFAULT.BOOLEAN.FALSE;
+				$rootScope.isLoading = false;
 			});
 			$http.get(
 					appInfo.apiUrl + 'editlink?post=' +

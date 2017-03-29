@@ -19,4 +19,5 @@ app.config(function($stateProvider, $urlRouterProvider){
 		controllerAs: '$detailCtrl',
 		templateUrl: appInfo.templateDirectory + 'partials/detail.html'
 	});
+
 });
