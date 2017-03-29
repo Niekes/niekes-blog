@@ -9,6 +9,7 @@
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico">
   	<link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico">
+    <meta name="google-site-verification" content="1YYtDKHkjWHdV38-KfK8HVt7k7tNUSc7yUUrVcqFpGw" />
    	<?php wp_head();?>
     <!--[if lt IE 9]>
 	    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
