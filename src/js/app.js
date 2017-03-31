@@ -2,9 +2,11 @@
 
 var app = new angular.module('app', ['ui.router', 'ngResource', 'ngAnimate']);
 
-app.config(function($stateProvider, $urlRouterProvider){
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$urlRouterProvider.otherwise('/');
+
+	console.log();
 
 	$stateProvider
 	.state('list', {
@@ -13,11 +15,17 @@ app.config(function($stateProvider, $urlRouterProvider){
 		controllerAs: '$listCtrl',
 		templateUrl: appInfo.templateDirectory + 'partials/list.html'
 	})
-	.state('detail', {
-		url: '/posts/:slug',
-		controller: 'detailCtrl',
-		controllerAs: '$detailCtrl',
-		templateUrl: appInfo.templateDirectory + 'partials/detail.html'
+	.state('post', {
+		url: '/posts/:slug/',
+		controller: 'postCtrl',
+		controllerAs: '$postCtrl',
+		templateUrl: appInfo.templateDirectory + 'partials/post.html'
 	});
+
+	$locationProvider.html5Mode({
+	    enabled: true,
+	    requireBase: false,
+	    rewriteLinks: false
+	}).hashPrefix('!');
 
 });

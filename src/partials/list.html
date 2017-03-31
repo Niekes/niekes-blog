@@ -11,7 +11,7 @@
 			<article data-ng-repeat="post in $listCtrl.posts">
 				<h2 data-ng-bind="post.title.rendered"></h2>
 				<div ng-bind-html="post.content.rendered | trusted"></div>
-				<a class="readMore" data-ui-sref="detail({ slug: post.slug })">Mehr lesen</a>
+				<a class="readMore" data-ui-sref="post({ slug: post.slug })">Mehr lesen</a>
 			</article>
 		</div>
 	</div>

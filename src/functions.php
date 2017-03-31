@@ -36,13 +36,13 @@ class wp_ng_theme {
 
 	// Change post preview button url
 	function change_preview_link() {
-		return get_home_url() . '/#/posts/' . basename(get_permalink());
+		return get_home_url() . '/posts/' . basename(get_permalink());
 	}
 
 	// Change permalink structure
 	function edit_the_permalink($url) {
 		$path = parse_url($url, PHP_URL_PATH);
-		return '/#' . rtrim($path, "/");
+		return rtrim($path, "/");
 	}
 }
 

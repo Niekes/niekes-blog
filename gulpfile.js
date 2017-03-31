@@ -38,7 +38,7 @@ gulp.task('scripts', function(){
   		jsSrcPath + 'app.js',
         // ANGULAR: Controllers
         jsSrcPath + 'controllers/listCtrl.js',
-        jsSrcPath + 'controllers/detailCtrl.js',
+        jsSrcPath + 'controllers/postCtrl.js',
         // ANGULAR: Services
         jsSrcPath + 'services/postService.js',
         jsSrcPath + 'services/userService.js',
