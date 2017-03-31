@@ -11,6 +11,8 @@ app.controller('listCtrl', function(DEFAULT, $rootScope, $state, posts) {
 		$listCtrl.posts = posts.query(function(){
 			$rootScope.isLoading = false;
 		});
+
+		console.log($listCtrl.posts);
 	}
 
 	init();
