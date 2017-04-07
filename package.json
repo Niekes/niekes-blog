@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "gulp clean && deploy && gulp build && deploy"
+    "deploy": "gulp clean && mkdir niekes_blog && dandelion deploy && gulp build && dandelion deploy"
   },
   "author": "",
   "license": "ISC",
