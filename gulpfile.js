@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var clean = require('gulp-clean');
 var concat = require('gulp-concat');
 var livereload = require('gulp-livereload');
 
@@ -66,4 +67,10 @@ gulp.task('watch', function(){
     gulp.watch('src/js/**/*.js', ['scripts']);
 });
 
+gulp.task('clean', function () {
+    return gulp.src('niekes_blog', {read: false})
+        .pipe(clean());
+});
+
 gulp.task('default', ['scss', 'img', 'php', 'scripts', 'partials', 'watch']);
+gulp.task('build', ['scss', 'img', 'php', 'scripts', 'partials']);

@@ -4,12 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gulp clean && deploy && gulp build && deploy"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "gulp-livereload": "^3.8.1",
-    "gulp-sourcemaps": "^2.3.0"
+    "gulp-clean": "^0.3.2",
+    "gulp-livereload": "^3.8.1"
   }
 }
