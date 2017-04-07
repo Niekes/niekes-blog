@@ -7,7 +7,7 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $http, $stateParams, $q
 
 	// @todo implement search
 	// var sr = posts.query({search: 'studium+informatik'});
-	// console.log(sr);
+	// console.info(sr);
 
 	function init(){
 		$rootScope.isLoading = true;
