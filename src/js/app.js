@@ -6,8 +6,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$urlRouterProvider.otherwise('/');
 
-	console.log();
-
 	$stateProvider
 	.state('list', {
 		url: '/',
@@ -29,6 +27,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	    enabled: true,
 	    requireBase: false,
 	    rewriteLinks: false
-	}).hashPrefix('!');
+	});
+
+});
+
+app.run(function($window, $rootScope, $location){
+
+	$window.ga('create', 'UA-70846886-2', 'auto');
+
+	$rootScope.$on('$stateChangeSuccess', function () {
+
+    	$window.ga('send', 'pageview', $location.path());
+
+	});
 
 });
