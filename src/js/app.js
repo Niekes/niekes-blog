@@ -17,7 +17,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		}
 	})
 	.state('post', {
-		url: '/posts/:slug/',
+		url: '/:slug/',
 		controller: 'postCtrl',
 		controllerAs: '$postCtrl',
 		templateUrl: appInfo.templateDirectory + 'partials/post.html'
@@ -38,7 +38,7 @@ app.run(function($window, $rootScope, $location){
 	$rootScope.$on('$stateChangeSuccess', function () {
 
     	$window.ga('send', 'pageview', $location.path());
-
+    	console.log('WORKS');
 	});
 
 });
