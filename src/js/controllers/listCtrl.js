@@ -12,7 +12,8 @@ app.controller('listCtrl', function(DEFAULT, $rootScope, $state, posts) {
 			$rootScope.isLoading = false;
 		});
 
-		// console.log($listCtrl.posts);
+		$rootScope.metaKeywords = $state.current.data.keywords.toString();
+
 	}
 
 	init();

@@ -12,11 +12,26 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $http, $stateParams, $q
 	function init(){
 		$rootScope.isLoading = true;
 		posts.query({slug: $stateParams.slug}, function (res){
+
+			var _keywords = [];
 			$postCtrl.post = res[0];
+
+			$http.get(appInfo.apiUrl + 'tags').then(function successCallback(response){
+
+				response.data.forEach(function(t){
+					if($postCtrl.post.tags.indexOf(t.id) !== -1){
+						_keywords.push(t.name);
+					}
+				});
+				$rootScope.metaKeywords = _keywords.toString();
+			});
+
+
 			$rootScope.metaTitle = ' - ' + $postCtrl.post.title.rendered;
 			$postCtrl.author = users.get({id: $postCtrl.post.author}, function(){
 				$rootScope.isLoading = false;
 			});
+
 			$http.get(
 					appInfo.apiUrl + 'editlink?post=' +
 					$postCtrl.post.id,

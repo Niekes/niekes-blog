@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?> data-ng-app="app">
 <head>
   	<title data-ng-bind="'Niekes Blog' + metaTitle"></title>
+    <meta name="keywords" content="{{metaKeywords}}">
   	<meta charset="<?php bloginfo('charset'); ?>" />
   	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   	<meta name="author" content="Stefan Nieke">

@@ -13,7 +13,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		url: '/',
 		controller: 'listCtrl',
 		controllerAs: '$listCtrl',
-		templateUrl: appInfo.templateDirectory + 'partials/list.html'
+		templateUrl: appInfo.templateDirectory + 'partials/list.html',
+		data: {
+			keywords: ['Niekes Blog, Niekes, Berlin, Software, Developer, Javascript, Softwareentwickler, Webentwickler']
+		}
 	})
 	.state('post', {
 		url: '/posts/:slug/',
