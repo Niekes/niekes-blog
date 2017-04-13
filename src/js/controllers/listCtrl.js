@@ -12,7 +12,7 @@ app.controller('listCtrl', function(DEFAULT, $rootScope, $state, posts) {
 			$rootScope.isLoading = false;
 		});
 
-		console.log($listCtrl.posts);
+		// console.log($listCtrl.posts);
 	}
 
 	init();

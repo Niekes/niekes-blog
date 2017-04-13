@@ -59,18 +59,20 @@ gulp.task('partials', function(){
         .pipe(livereload());
 });
 
+gulp.task('sitemap', function(){
+    return gulp.src('src/sitemap.xml')
+        .pipe(gulp.dest('niekes_blog'))
+        .pipe(livereload());
+});
+
 gulp.task('watch', function(){
     livereload.listen();
     gulp.watch('src/scss/**/*.scss', ['scss']);
     gulp.watch('src/**/*.php', ['php']);
     gulp.watch('src/partials/*.html', ['partials']);
+    gulp.watch('src/sitemap.xml', ['sitemap']);
     gulp.watch('src/js/**/*.js', ['scripts']);
 });
 
-gulp.task('clean', function () {
-    return gulp.src('niekes_blog', {read: false})
-        .pipe(clean());
-});
-
-gulp.task('default', ['scss', 'img', 'php', 'scripts', 'partials', 'watch']);
-gulp.task('build', ['scss', 'img', 'php', 'scripts', 'partials']);
+gulp.task('default', ['scss', 'img', 'php', 'scripts', 'partials', 'sitemap', 'watch']);
+gulp.task('build', ['scss', 'img', 'php', 'scripts', 'partials', 'sitemap']);
