@@ -38,7 +38,7 @@ app.run(function($window, $rootScope, $location){
 	$rootScope.$on('$stateChangeSuccess', function () {
 
     	$window.ga('send', 'pageview', $location.path());
-    	console.log('WORKS');
+
 	});
 
 });
