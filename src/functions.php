@@ -13,8 +13,8 @@ class wp_ng_theme {
 			)
 		);
 
-		// $default_image =  get_template_directory_uri() . '/img/favicon.ico';
-		$default_image = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Niekes+Blog&w=350&h=150';
+		$default_image =  get_template_directory_uri() . '/img/niekes_blog_logo.jpg';
+		// $default_image = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Niekes+Blog&w=350&h=150';
 		echo '<link rel="image_src" href="' . $default_image . '"/>';
 		echo '<link property="og:image" href="' . $default_image . '"/>';
 	}
