@@ -2,9 +2,10 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var clean = require('gulp-clean');
 var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var livereload = require('gulp-livereload');
+var ngAnnotate = require('gulp-ng-annotate');
 
 var jsSrcPath = 'src/js/';
 
@@ -48,7 +49,9 @@ gulp.task('scripts', function(){
         // ANGULAR: constants
         jsSrcPath + 'constants/constants.js',
 	])
+    .pipe(ngAnnotate())
     .pipe(concat('scripts.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('niekes_blog/js'))
     .pipe(livereload());
 });
