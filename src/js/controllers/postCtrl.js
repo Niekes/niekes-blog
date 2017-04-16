@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateParams, $q, $location, posts, users) {
+app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateParams, $q, $window, $location, posts, users) {
 
 	var $postCtrl = this;
 	$postCtrl.footer = DEFAULT.FOOTER;
@@ -15,7 +15,6 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 
 			var _keywords = [];
 			$postCtrl.post = res[0];
-			$postCtrl.post.fblink = 'https://www.facebook.com/sharer/sharer.php?u=' + $location.$$host + $postCtrl.post.link;
 
 			$http.get(appInfo.apiUrl + 'tags').then(function successCallback(response){
 
@@ -29,6 +28,8 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 
 			$rootScope.metaTitle = ' - ' + $postCtrl.post.title.rendered;
 			$rootScope.metaDescription = $filter('plain')($postCtrl.post.excerpt.rendered);
+			$postCtrl.post.fblink =
+
 			$postCtrl.author = users.get({id: $postCtrl.post.author}, function(){
 				$rootScope.isLoading = false;
 			});
@@ -42,6 +43,10 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 			});
 		});
 	}
+
+	$postCtrl.shareOnFb = function(){
+		$window.open('https://www.facebook.com/sharer/sharer.php?u=' + $location.$$host + $postCtrl.post.link + '&title=Niekes Blog' + $rootScope.metaTitle + '&description=' + $rootScope.metaDescription, 'facebook-share-dialog', 'width=626,height=436');
+	};
 
 	init();
 });

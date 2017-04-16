@@ -28,9 +28,7 @@
 			<a class="backToList" data-ui-sref="list">&#8678; Zurück</a>
 		</div>
 		<div class="col-lg-6 text-right">
-			<a data-ng-href="{{$postCtrl.post.fblink}}" target="_blank">Auf Facebook teilen</a>
-			<a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),'facebook-share-dialog','width=626,height=436');return false;">Share on Facebook</a>
-
+			<a href="" data-ng-click="$postCtrl.shareOnFb()" target="_blank">Auf Facebook teilen</a>
 		</div>
 	</div>
 
