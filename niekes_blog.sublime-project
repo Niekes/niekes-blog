@@ -3,8 +3,8 @@
 	[
 		{
 			"path": ".",
-			"folder_exclude_patterns": ["niekes_blog", "node_modules"],
-			// "folder_exclude_patterns": ["node_modules"]
+			// "folder_exclude_patterns": ["niekes_blog", "node_modules"],
+			"folder_exclude_patterns": ["node_modules"]
 		}
 	],
 	"settings":{

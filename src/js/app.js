@@ -17,7 +17,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		}
 	})
 	.state('post', {
-		url: '/:slug/',
+		url: '/posts/:slug/',
 		controller: 'postCtrl',
 		controllerAs: '$postCtrl',
 		templateUrl: appInfo.templateDirectory + 'partials/post.html'
