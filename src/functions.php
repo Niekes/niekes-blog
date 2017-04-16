@@ -14,7 +14,7 @@ class wp_ng_theme {
 		);
 
 		$default_image="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"; //replace this with a default image on your server or an image in your media library
-		echo '<meta property="og:image" content="' . $default_image . '"/>';
+		echo '<meta property="og:image" href="' . $default_image . '"/>';
 	}
 
 	// Add new API endpoint: editlink
