@@ -3,6 +3,7 @@
 <head>
   	<title data-ng-bind="'Niekes Blog' + metaTitle"></title>
     <meta property="og:title" content="Niekes Blog" />
+    <meta property="og:type" content="website.blog" />
     <meta name="keywords" content="{{metaKeywords}}">
     <meta name="description" content="{{metaDescription}}" />
     <meta charset="<?php bloginfo('charset'); ?>" />
