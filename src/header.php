@@ -9,10 +9,6 @@
     <meta name="author" content="Stefan Nieke">
   	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="google-site-verification" content="1YYtDKHkjWHdV38-KfK8HVt7k7tNUSc7yUUrVcqFpGw" />
-<<<<<<< HEAD
-=======
-    <meta name="fragment" content="!">
->>>>>>> parent of d6b21cd... add posts/ back in
     <link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico">
     <link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/img/favicon.ico">
    	<?php wp_head();?>
