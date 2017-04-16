@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?> data-ng-app="app">
 <head>
   	<title data-ng-bind="'Niekes Blog' + metaTitle"></title>
+    <meta property="og:title" content="Niekes Blog" />
     <meta name="keywords" content="{{metaKeywords}}">
     <meta name="description" content="{{metaDescription}}" />
     <meta charset="<?php bloginfo('charset'); ?>" />
