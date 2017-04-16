@@ -28,7 +28,6 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 
 			$rootScope.metaTitle = ' - ' + $postCtrl.post.title.rendered;
 			$rootScope.metaDescription = $filter('plain')($postCtrl.post.excerpt.rendered);
-			$postCtrl.post.fblink =
 
 			$postCtrl.author = users.get({id: $postCtrl.post.author}, function(){
 				$rootScope.isLoading = false;
