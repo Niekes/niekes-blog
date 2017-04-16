@@ -12,6 +12,9 @@ class wp_ng_theme {
 				'isAdmin'			 => current_user_can('administrator')
 			)
 		);
+
+		$default_image="https://placeholdit.imgix.net/~text?txtsize=33&txt=350%C3%97150&w=350&h=150"; //replace this with a default image on your server or an image in your media library
+		echo '<meta property="og:image" content="' . $default_image . '"/>';
 	}
 
 	// Add new API endpoint: editlink
@@ -44,18 +47,11 @@ class wp_ng_theme {
 		$path = parse_url($url, PHP_URL_PATH);
 		return $path;
 	}
-
-	// add default image for fb posts
-	function insert_fb_in_head() {
-		$default_image = bloginfo('template_directory') .'/img/favicon.ico';
-		echo '<meta property="og:image" content="' . $default_image . '"/>';
-	}
 }
 
 $ngTheme = new wp_ng_theme();
 add_action('wp_enqueue_scripts', array($ngTheme, 'enqueue_scripts'));
 add_action('wp_head', array($ngTheme, 'enqueue_scripts'));
-add_action('wp_head', array($ngTheme, 'insert_fb_in_head'), 5);
 add_action('rest_api_init', array($ngTheme, 'edit_link_route'));
 add_filter('preview_post_link', array($ngTheme, 'change_preview_link'));
 add_filter('post_link', array($ngTheme, 'edit_the_permalink'));
