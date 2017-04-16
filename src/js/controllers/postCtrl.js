@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateParams, $q, posts, users) {
+app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateParams, $q, $location, posts, users) {
 
 	var $postCtrl = this;
 	$postCtrl.footer = DEFAULT.FOOTER;
@@ -15,6 +15,7 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 
 			var _keywords = [];
 			$postCtrl.post = res[0];
+			$postCtrl.post.fblink = 'https://www.facebook.com/sharer/sharer.php?u=' + $location.$$host + $postCtrl.post.link;
 
 			$http.get(appInfo.apiUrl + 'tags').then(function successCallback(response){
 

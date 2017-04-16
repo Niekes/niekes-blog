@@ -10,7 +10,7 @@
 		<div class="col-lg-12">
 			<article data-ng-repeat="post in $listCtrl.posts">
 				<h2 data-ng-bind="post.title.rendered"></h2>
-				<div ng-bind-html="post.excerpt.rendered | trusted"></div>
+				<div data-ng-bind-html="post.excerpt.rendered | trusted"></div>
 				<a class="readMore" data-ui-sref="post({ slug: post.slug })">Mehr lesen</a>
 			</article>
 		</div>
