@@ -13,8 +13,10 @@ class wp_ng_theme {
 			)
 		);
 
-		$default_image=get_template_directory_uri() . '/img/favicon.ico'; //replace this with a default image on your server or an image in your media library
-		echo '<meta property="og:image" href="' . $default_image . '"/>';
+		// $default_image =  get_template_directory_uri() . '/img/favicon.ico';
+		$default_image = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Niekes+Blog&w=350&h=150';
+		echo '<link rel="image_src" href="' . $default_image . '"/>';
+		echo '<link property="og:image" href="' . $default_image . '"/>';
 	}
 
 	// Add new API endpoint: editlink
