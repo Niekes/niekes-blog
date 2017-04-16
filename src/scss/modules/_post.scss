@@ -12,6 +12,11 @@ a.backToList{
 
 div.postContent{
 	a{
-		color: #ef7343;
+		color: $post-link-color;
+		border-bottom: .08em solid $gray-lighter;
+		text-decoration: none;
+		&:hover, p &:focus, p &:hover {
+    		border-bottom: .08em solid $post-link-color;
+		}
 	}
 }
