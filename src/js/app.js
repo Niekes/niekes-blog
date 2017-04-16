@@ -13,11 +13,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		controllerAs: '$listCtrl',
 		templateUrl: appInfo.templateDirectory + 'partials/list.html',
 		data: {
-			keywords: ['Niekes Blog, Niekes, Berlin, Software, Developer, Javascript, Softwareentwickler, Webentwickler']
+			keywords: ['Niekes Blog, Niekes, Berlin, Software, Developer, Javascript, Softwareentwickler, Webentwickler, Progamming, Programmieren, Entwickler, Javascript, PhP, Python, Java, AngularJS']
 		}
 	})
 	.state('post', {
-		url: '/:slug/',
+		url: '/posts/:slug/',
 		controller: 'postCtrl',
 		controllerAs: '$postCtrl',
 		templateUrl: appInfo.templateDirectory + 'partials/post.html'

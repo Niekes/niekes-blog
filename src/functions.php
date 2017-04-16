@@ -42,7 +42,7 @@ class wp_ng_theme {
 	// Change permalink structure
 	function edit_the_permalink($url) {
 		$path = parse_url($url, PHP_URL_PATH);
-		return rtrim($path, "/");
+		return $path;
 	}
 }
 
