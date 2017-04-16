@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('postCtrl', function(DEFAULT, $rootScope, $http, $stateParams, $q, posts, users) {
+app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateParams, $q, posts, users) {
 
 	var $postCtrl = this;
 	$postCtrl.footer = DEFAULT.FOOTER;
@@ -26,8 +26,8 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $http, $stateParams, $q
 				$rootScope.metaKeywords = _keywords.toString();
 			});
 
-
 			$rootScope.metaTitle = ' - ' + $postCtrl.post.title.rendered;
+			$rootScope.metaDescription = $filter('plain')($postCtrl.post.excerpt.rendered);
 			$postCtrl.author = users.get({id: $postCtrl.post.author}, function(){
 				$rootScope.isLoading = false;
 			});
