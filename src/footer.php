@@ -1,4 +1,4 @@
-	</div><!-- END CONTAINER -->
+		</div><!-- END CONTAINER -->
     <?php wp_footer(); ?>
 </body>
 </html>

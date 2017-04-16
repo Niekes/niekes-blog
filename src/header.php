@@ -25,13 +25,13 @@
     </script>
 </head>
 <body class="blog">
-<div class="container">
-    <div class="row">
-		<div class="col-lg-12">
-			<a id="blogHeader" data-ui-sref="list">
-                <h1>
-					<?php echo bloginfo('name'); ?>
-                </h1>
-			</a>
-        </div>
-	</div>
+    <div class="container">
+        <div class="row">
+    		<div class="col-lg-12">
+    			<a id="blogHeader" data-ui-sref="list">
+                    <h1>
+    					<?php echo bloginfo('name'); ?>
+                    </h1>
+    			</a>
+            </div>
+    	</div>

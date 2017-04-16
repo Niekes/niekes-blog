@@ -1,11 +1,22 @@
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+
 .fade.ng-hide {
-  transition: 5s linear all;
-  opacity: 0;
+  	opacity: 0;
+  	@include transition(all linear 0.5s);
 }
 
 .fade.ng-hide-add,
 .fade.ng-hide-remove {
-  transition: all linear 0.5s;
+	@include transition(all linear 0.5s);
 }
 
 img.boxshadow{
