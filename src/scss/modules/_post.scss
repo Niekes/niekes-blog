@@ -10,6 +10,7 @@ a.backToList{
 	font-family: $font-family-sans-serif;
 	background-color: $gray-lighter;
 	padding: 5px 10px;
+	color: $post-link-color !important;
 }
 
 div.postContent{
