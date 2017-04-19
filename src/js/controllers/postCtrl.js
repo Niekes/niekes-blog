@@ -13,7 +13,7 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 		$rootScope.isLoading = true;
 		posts.query({slug: $stateParams.slug}, function (res){
 
-			var _keywords = [];
+			var _keywords  = [];
 			$postCtrl.post = res[0];
 
 			$http.get(appInfo.apiUrl + 'tags').then(function successCallback(response){
@@ -26,8 +26,9 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 				$rootScope.metaKeywords = _keywords.toString();
 			});
 
-			$rootScope.metaTitle = ' - ' + $postCtrl.post.title.rendered;
-			$rootScope.metaDescription = $filter('plain')($postCtrl.post.excerpt.rendered);
+			$rootScope.metaTitle 		= ' - ' + $postCtrl.post.title.rendered;
+			$rootScope.metaCanonical 	= DEFAULT.CANONICAL + $postCtrl.post.link;
+			$rootScope.metaDescription 	= $filter('plain')($postCtrl.post.excerpt.rendered);
 
 			$postCtrl.author = users.get({id: $postCtrl.post.author}, function(){
 				$rootScope.isLoading = false;

@@ -14,7 +14,6 @@ class wp_ng_theme {
 		);
 
 		$default_image =  get_template_directory_uri() . '/img/niekes_blog_logo.jpg';
-		// $default_image = 'https://placeholdit.imgix.net/~text?txtsize=33&txt=Niekes+Blog&w=350&h=150';
 		echo '<link rel="image_src" href="' . $default_image . '"/>';
 		echo '<link property="og:image" href="' . $default_image . '"/>';
 	}
@@ -57,5 +56,4 @@ add_action('wp_head', array($ngTheme, 'enqueue_scripts'));
 add_action('rest_api_init', array($ngTheme, 'edit_link_route'));
 add_filter('preview_post_link', array($ngTheme, 'change_preview_link'));
 add_filter('post_link', array($ngTheme, 'edit_the_permalink'));
-// @todo add fb thumbnail: http://www.wpbeginner.com/wp-themes/how-to-add-facebook-open-graph-meta-data-in-wordpress-themes/
 ?>

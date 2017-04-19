@@ -6,13 +6,14 @@ app.controller('listCtrl', function(DEFAULT, $rootScope, $state, posts) {
 
 	function init(){
 
-		$rootScope.isLoading = true;
-		$rootScope.metaTitle = '';
-		$rootScope.metaKeywords = $state.current.data.keywords.toString();
-		$rootScope.metaDescription = DEFAULT.DESCRIPTION;
+		$rootScope.metaTitle 		= '';
+		$rootScope.isLoading 		= true;
+		$rootScope.metaCanonical 	= DEFAULT.CANONICAL;
+		$rootScope.metaDescription  = DEFAULT.DESCRIPTION;
+		$rootScope.metaKeywords 	= $state.current.data.keywords.toString();
 
 		$listCtrl.footer = DEFAULT.FOOTER;
-		$listCtrl.posts = posts.query(function(){
+		$listCtrl.posts  = posts.query(function(){
 			$rootScope.isLoading = false;
 		});
 
