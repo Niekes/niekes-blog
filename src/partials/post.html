@@ -6,14 +6,10 @@
 		</div>
 	</div>
 
-	<div class="row text-muted articleIntro">
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+	<div class="row text-muted">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<em><span data-ng-bind="$postCtrl.post.date|date"></span></em><br>
 			<a data-ng-hide="!$postCtrl.post.editPostLink" href="{{$postCtrl.post.editPostLink}}">Edit</a>
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
-			<em><span data-ng-bind="$postCtrl.author.name"></span></em>
-			<img class="authorImg img-circle" src="{{$postCtrl.author.avatar_urls[96]}}">
 		</div>
 	</div>
 

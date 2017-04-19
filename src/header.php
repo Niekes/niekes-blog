@@ -32,7 +32,7 @@
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
     </script>
 </head>
-<body class="blog">
+<body>
     <div class="container">
         <div class="row">
     		<div class="col-lg-12">

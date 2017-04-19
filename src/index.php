@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<div class="row">
+	<div class="row blog">
 		<div class="col-lg-12" data-ui-view></div>
 	</div>
 <?php get_footer(); ?>

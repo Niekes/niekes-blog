@@ -30,9 +30,7 @@ app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateP
 			$rootScope.metaCanonical 	= DEFAULT.CANONICAL + $postCtrl.post.link;
 			$rootScope.metaDescription 	= $filter('plain')($postCtrl.post.excerpt.rendered);
 
-			$postCtrl.author = users.get({id: $postCtrl.post.author}, function(){
-				$rootScope.isLoading = false;
-			});
+			$rootScope.isLoading = false;
 
 			$http.get(
 					appInfo.apiUrl + 'editlink?post=' +
