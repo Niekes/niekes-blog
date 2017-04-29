@@ -28,9 +28,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	    requireBase: false,
 	    rewriteLinks: false
 	});
-
-	$locationProvider.hashPrefix('!');
-
 });
 
 app.run(function($window, $rootScope, $location){
