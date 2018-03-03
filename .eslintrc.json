@@ -1,7 +1,10 @@
 {
     "extends": "eslint:recommended",
     "globals": {
+        "app": false,
+        "angular": false,
         "document": false,
+        "appInfo": false,
         "window": false,
         "d3": false
     },

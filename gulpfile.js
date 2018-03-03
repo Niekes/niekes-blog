@@ -8,14 +8,15 @@ var ngAnnotate  = require('gulp-ng-annotate');
 var sass        = require('gulp-sass');
 var uglify      = require('gulp-uglify');
 
-var jsSrcPath  = 'src/js/';
-var baseDir    = './src/';
-var tasks      = ['partials', 'scss', 'img', 'scripts', 'php', 'sitemap'];
+var jsSrcPath = 'src/js/';
+var baseDir   = './src/';
+var rmteDir   = '/blog.niekes.com/wp-content/themes/niekes_blog';
+var tasks     = ['partials', 'scss', 'img', 'scripts', 'php', 'sitemap'];
 
 gulp.task('scss', function () {
-	return gulp.src('src/scss/**/*.scss')
-    	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    	.pipe(gulp.dest('niekes_blog'))
+    return gulp.src('src/scss/**/*.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest('niekes_blog'))
         .pipe(browserSync.stream());
 });
 
@@ -26,21 +27,21 @@ gulp.task('img', function(){
 });
 
 gulp.task('php', function(){
-	return gulp.src('src/**/*.php')
-		.pipe(gulp.dest('niekes_blog'))
+    return gulp.src('src/**/*.php')
+        .pipe(gulp.dest('niekes_blog'))
         .pipe(browserSync.stream());
 });
 
 gulp.task('scripts', function(){
-  	return gulp.src([
-  		// LIBS
+    return gulp.src([
+        // LIBS
         jsSrcPath + 'libs/angular.min.js',
         jsSrcPath + 'libs/angular-resource.min.js',
         jsSrcPath + 'libs/angular-ui-router.min.js',
         jsSrcPath + 'libs/angular-animate.min.js',
-  		jsSrcPath + 'libs/angular-locale_de-de.min.js',
-  		// ANGULAR: App
-  		jsSrcPath + 'app.js',
+        jsSrcPath + 'libs/angular-locale_de-de.min.js',
+        // ANGULAR: App
+        jsSrcPath + 'app.js',
         // ANGULAR: Controllers
         jsSrcPath + 'controllers/listCtrl.js',
         jsSrcPath + 'controllers/postCtrl.js',
@@ -51,7 +52,7 @@ gulp.task('scripts', function(){
         jsSrcPath + 'filters/htmlFilter.js',
         // ANGULAR: constants
         jsSrcPath + 'constants/constants.js',
-	])
+    ])
     .pipe(ngAnnotate())
     .pipe(concat('scripts.js'))
     .pipe(uglify())
@@ -81,6 +82,8 @@ gulp.task('default', tasks, function () {
         proxy: 'niekes-blog.test-dev',
         reloadOnRestart: true
     });
+
+    console.log(process.env);
 
     // add browserSync.reload to the tasks array to make
     // all browsers reload after tasks are complete.
@@ -118,3 +121,30 @@ gulp.task('scripts-watch', ['scripts'], function (done) {
     browserSync.reload();
     done();
 });
+
+//////////////////////////////////////////
+// DEPLOYMENT
+//////////////////////////////////////////
+gulp.task('deploy', function(){
+    gulp.start(tasks);
+});
+
+gulp.task('push', function(){
+
+    var conn = ftp.create({
+        host     : process.env.NIEKES_HOST,
+        user     : process.env.NIEKES_USER,
+        password : process.env.NIEKES_PASSWORD,
+        parallel : 10
+    });
+
+    var globs = ['./niekes_blog/**'];
+
+    // using base = '.' will transfer everything to /public_html correctly
+    // turn off buffering in gulp.src for best performance
+    return gulp.src(globs, { base: './niekes_blog/', buffer: false })
+        .pipe(conn.newer(rmteDir))
+        .pipe(conn.dest(rmteDir))
+        .pipe(conn.clean(rmteDir + '/**', './niekes_blog', rmteDir));
+});
+
