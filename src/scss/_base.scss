@@ -10,13 +10,13 @@ html {
 
 
 .fade.ng-hide {
-  	opacity: 0;
-  	@include transition(all linear 0.5s);
+    opacity: 0;
+    @include transition(all linear 0.5s);
 }
 
 .fade.ng-hide-add,
 .fade.ng-hide-remove {
-	@include transition(all linear 0.5s);
+    @include transition(all linear 0.5s);
 }
 
 img.boxshadow{
@@ -25,5 +25,5 @@ img.boxshadow{
 }
 
 a{
-	text-decoration: none !important;
+    text-decoration: none !important;
 }

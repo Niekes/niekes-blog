@@ -40,6 +40,8 @@ gulp.task('scripts', function(){
         jsSrcPath + 'libs/angular-ui-router.min.js',
         jsSrcPath + 'libs/angular-animate.min.js',
         jsSrcPath + 'libs/angular-locale_de-de.min.js',
+        // HIGHTLIGHT JS
+        jsSrcPath + 'libs/highlight.min.js',
         // ANGULAR: App
         jsSrcPath + 'app.js',
         // ANGULAR: Controllers
@@ -52,6 +54,7 @@ gulp.task('scripts', function(){
         jsSrcPath + 'filters/htmlFilter.js',
         // ANGULAR: constants
         jsSrcPath + 'constants/constants.js',
+
     ])
     .pipe(ngAnnotate())
     .pipe(concat('scripts.js'))
@@ -80,10 +83,9 @@ gulp.task('watch', function(){
 gulp.task('default', tasks, function () {
     browserSync.init({
         proxy: 'niekes-blog.test-dev',
-        reloadOnRestart: true
+        reloadOnRestart: true,
+        open: false
     });
-
-    console.log(process.env);
 
     // add browserSync.reload to the tasks array to make
     // all browsers reload after tasks are complete.
