@@ -6,7 +6,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
 	$urlRouterProvider.otherwise('/');
 
-
 	$stateProvider
 	.state('list', {
 		url: '/',

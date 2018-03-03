@@ -2,4 +2,4 @@ node_modules/
 niekes_blog/
 .DS_Store
 niekes_blog.sublime-workspace
-dandelion.yml
+package-lock.json

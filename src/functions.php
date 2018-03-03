@@ -40,7 +40,7 @@ class wp_ng_theme {
 
 	// Change post preview button url
 	function change_preview_link() {
-		return get_home_url() . '/posts/' . basename(get_permalink());
+		return get_home_url() . '/posts/' . basename(get_permalink()) . '/';
 	}
 
 	// Change permalink structure
