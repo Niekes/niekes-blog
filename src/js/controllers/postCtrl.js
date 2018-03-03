@@ -1,50 +1,55 @@
 'use strict';
 
-app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $http, $stateParams, $q, $window, $location, posts, users) {
+app.controller('postCtrl', function(DEFAULT, $rootScope, $filter, $timeout, $http, $stateParams, $q, $window, $location, posts) {
 
-	var $postCtrl = this;
-	$postCtrl.footer = DEFAULT.FOOTER;
+    var $postCtrl    = this;
+    $postCtrl.footer = DEFAULT.FOOTER;
 
-	// @todo implement search
-	// var sr = posts.query({search: 'studium+informatik'});
-	// console.info(sr);
+    // @todo implement search
+    // var sr = posts.query({search: 'studium+informatik'});
+    // console.info(sr);
 
-	function init(){
-		$rootScope.isLoading = true;
-		posts.query({slug: $stateParams.slug}, function (res){
+    function init(){
+        $rootScope.isLoading = true;
+        posts.query({slug: $stateParams.slug}, function (res){
 
-			var _keywords  = [];
-			$postCtrl.post = res[0];
+            var _keywords  = [];
+            $postCtrl.post = res[0];
 
-			$http.get(appInfo.apiUrl + 'tags').then(function successCallback(response){
+            $http.get(appInfo.apiUrl + 'tags').then(function successCallback(response){
 
-				response.data.forEach(function(t){
-					if($postCtrl.post.tags.indexOf(t.id) !== -1){
-						_keywords.push(t.name);
-					}
-				});
-				$rootScope.metaKeywords = _keywords.toString();
-			});
+                response.data.forEach(function(t){
+                    if($postCtrl.post.tags.indexOf(t.id) !== -1){
+                        _keywords.push(t.name);
+                    }
+                });
+                $rootScope.metaKeywords = _keywords.toString();
+            });
 
-			$rootScope.metaTitle 		= ' - ' + $postCtrl.post.title.rendered;
-			$rootScope.metaCanonical 	= DEFAULT.CANONICAL + $postCtrl.post.link;
-			$rootScope.metaDescription 	= $filter('plain')($postCtrl.post.excerpt.rendered);
+            $rootScope.metaTitle        = ' - ' + $postCtrl.post.title.rendered;
+            $rootScope.metaCanonical    = DEFAULT.CANONICAL + $postCtrl.post.link;
+            $rootScope.metaDescription  = $filter('plain')($postCtrl.post.excerpt.rendered);
 
-			$rootScope.isLoading = false;
+            $rootScope.isLoading = false;
 
-			$http.get(
-					appInfo.apiUrl + 'editlink?post=' +
-					$postCtrl.post.id,
-					{ headers: {'X-WP-Nonce': appInfo.nonce} }
-				).then(function successCallback(res){
-					$postCtrl.post.editPostLink = res.data.editPostLink;
-			});
-		});
-	}
+            $http.get(
+                    appInfo.apiUrl + 'editlink?post=' +
+                    $postCtrl.post.id,
+                    { headers: {'X-WP-Nonce': appInfo.nonce} }
+                ).then(function successCallback(res){
+                    $postCtrl.post.editPostLink = res.data.editPostLink;
+            });
+            $timeout(function(){
+                document.querySelectorAll('pre code').forEach(function(block){
+                    hljs.highlightBlock(block);
+                });
+            }, 0, false);
+        });
+    }
 
-	$postCtrl.shareOnFb = function(){
-		$window.open('https://www.facebook.com/sharer/sharer.php?u=' + $location.$$host + $postCtrl.post.link + '&title=Niekes Blog' + $rootScope.metaTitle + '&description=' + $rootScope.metaDescription, 'facebook-share-dialog', 'width=626,height=436');
-	};
+    $postCtrl.shareOnFb = function(){
+        $window.open('https://www.facebook.com/sharer/sharer.php?u=' + $location.$$host + $postCtrl.post.link + '&title=Niekes Blog' + $rootScope.metaTitle + '&description=' + $rootScope.metaDescription, 'facebook-share-dialog', 'width=626,height=436');
+    };
 
-	init();
+    init();
 });

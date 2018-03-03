@@ -3,6 +3,7 @@
     "globals": {
         "app": false,
         "angular": false,
+        "hljs": false,
         "document": false,
         "appInfo": false,
         "window": false,
